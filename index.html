@@ -3,10 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tópico 9 - Mobile First</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Identificador de Tela</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .mobile-first {
+      font-family: sans-serif;
+      padding: 16px;
+    }
+
+    /* Estilo do indicador de tela (Padrão: Mobile) */
+    .screen-indicator {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background-color: #ff4757;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .screen-indicator::after {
+      content: " (Mobile)";
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3742fa;
+      padding: 12px;
+      background: #f1f2f6;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    /* Estilos para Telas Grandes (Desktop) */
+    @media (min-width: 768px) {
+      /* Altera o indicador para Tela Grande */
+      .screen-indicator {
+        background-color: #2ed573;
+      }
+      
+      .screen-indicator::after {
+        content: " (Tela Grande / Desktop)";
+      }
+
+      nav {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      nav a {
+        background: transparent;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Indicador visual na tela -->
+  <div class="screen-indicator">Modo Atual:</div>
+
   <div class="mobile-first">
     <nav>
       <a href="#">Home</a>
@@ -14,8 +101,10 @@
       <a href="#">Serviços</a>
       <a href="#">Contato</a>
     </nav>
-    <h1>Bem-vindo</h1>
-    <p>Conteúdo principal adaptável do site.</p>
+
+    <h1>Responsividade em Ação</h1>
+    <p>Redimensione a janela do navegador para ver a mudança entre Mobile e Tela Grande.</p>
   </div>
+
 </body>
 </html>
